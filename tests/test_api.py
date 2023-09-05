@@ -10,3 +10,18 @@ class TestAPI:
     def test_successful_api_connection(self, api):
         response = api.get("hotels")
         validate_response(response)
+
+    # Test Case 2: Verify Data Consistency and Accuracy
+    def test_data_consistency_and_accuracy(self, api):
+        response = api.get("hotels")
+        validate_response(response)
+
+        events = parse_as_json(response)
+
+        # Validate data consistency and accuracy for each event
+        for event in events:
+            assert "city" in event
+            assert "title" in event
+            assert "rating" in event
+            assert "price" in event
+        print("Data consistency and accuracy verified successfully!")
