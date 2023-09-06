@@ -12,25 +12,22 @@ class IndexPage(BasePage):
         def wait_and_click_sign_in_link(self):
             self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, IndexPageLocators.SIGN_IN_LINK).click()
 
-        # def wait_and_type_user_email(self, email):
-        #     self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, IndexPageLocators.EMAIL_INPUT).send_keys(email)
-        #
-        # def wait_and_type_user_password(self, password):
-        #     self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, IndexPageLocators.PASSWORD_INPUT).send_keys(password)
-        #
-        # def wait_and_click_sign_in_button(self):
-        #     self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, IndexPageLocators.SIGN_IN_LINK).click()
+        def wait_and_type_user_email(self, email):
+            self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, IndexPageLocators.EMAIL_INPUT).send_keys(email)
+
+        def wait_and_type_user_password(self, password):
+            self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, IndexPageLocators.PASSWORD_INPUT).send_keys(password)
+
+        def wait_and_click_sign_in_button(self):
+            self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, IndexPageLocators.SIGN_IN_BUTTON).click()
 
         def signin_user(self, email, password):
-            # Find email and password input fields and enter valid credentials
-            email_field = self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, IndexPageLocators.EMAIL_INPUT)
-            password_field = self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, IndexPageLocators.PASSWORD_INPUT)
+            self.wait_and_type_user_email(email)
+            self.wait_and_type_user_password(password)
+            self.wait_and_click_sign_in_button()
 
-            email_field.send_keys(email)
-            password_field.send_keys(password)
-
-            # Submit the signin form
-            self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, IndexPageLocators.SIGN_IN_BUTTON).click()
+        def sign_out_user(self):
+            self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, IndexPageLocators.SIGN_OUT_LINK).click()
 
         def verify_successful_signin(self):
             try:
@@ -38,5 +35,14 @@ class IndexPage(BasePage):
                     MAX_WAIT_INTERVAL, IndexPageLocators.SIGN_OUT_LINK
                 )
                 return sign_out_element.is_displayed()
+            except TimeoutException:
+                return False
+
+        def is_sign_in_link_visible(self):
+            try:
+                sign_in_element = self.explicitly_wait_and_find_element(
+                    MAX_WAIT_INTERVAL, IndexPageLocators.SIGN_IN_LINK
+                )
+                return sign_in_element.is_displayed()
             except TimeoutException:
                 return False
