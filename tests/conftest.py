@@ -16,3 +16,10 @@ def driver():
     _driver.maximize_window()  # Maximize the browser window
     yield _driver  # Yield the WebDriver instance to the test
     _driver.quit()  # After the test, close the WebDriver
+
+
+@pytest.fixture(scope="function")
+def email_password():
+    email = "test@gmail.com"
+    password = "12345"
+    return [email, password]
