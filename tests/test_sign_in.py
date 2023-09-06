@@ -47,3 +47,20 @@ class TestSignIn:
 
         assert sign_in_link_visible, "Sign in link is not visible after signing out"
         print("User is signed out successfully")
+
+    # Test Case 3: User Signin with invalid credentials
+    def test_user_sign_in_with_invalid_credentials(self, driver, email_password):
+        index_page = IndexPage(driver)
+        index_page.navigate_to(SITE_URL)
+        time.sleep(1)
+        index_page.wait_and_click_sign_in_link()
+        email_input = driver.find_element(By.NAME, 'email')
+        email_input.send_keys("invalid")
+        index_page.wait_and_click_sign_in_button()
+
+        # Retrieve the validation message
+        validation_message = email_input.get_attribute("validationMessage")
+        # Check if the validation message matches the expected message
+        expected_message = "Please provide correct email"
+        assert validation_message == expected_message, f"Validation message mismatch. Expected: {expected_message}, Actual: {validation_message}"
+        print("Sign In failed with invalid credentials")
