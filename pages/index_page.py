@@ -55,3 +55,6 @@ class IndexPage(BasePage):
                 return sign_in_element.is_displayed()
             except TimeoutException:
                 return False
+
+        def click_city_link(self, city_locator):
+            self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, city_locator).click()
