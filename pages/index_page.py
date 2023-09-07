@@ -66,3 +66,12 @@ class IndexPage(BasePage):
                 return True
             except NoSuchElementException:
                 return False
+
+        def get_number_of_cities(self):
+            try:
+                self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, IndexPageLocators.NUMBER_OF_CITIES)
+                city_elements = self.driver.find_elements(*IndexPageLocators.NUMBER_OF_CITIES)
+                displayed_cities = [element for element in city_elements if element.is_displayed()]
+                return len(displayed_cities)
+            except (TimeoutException, NoSuchElementException):
+                return 0
