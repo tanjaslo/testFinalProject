@@ -19,9 +19,9 @@ class TestSignIn:
         # Click on the "Sign in" link
         index_page.wait_and_click_sign_in_link()
         # Perform user login
-        index_page.signin_user(email_password[0], email_password[1])
+        index_page.sign_in_user(email_password[0], email_password[1])
         # Verify that the user is signed in successfully
-        assert index_page.verify_successful_signin(), "User is not signed in successfully"
+        assert index_page.verify_successful_sign_in(), "User is not signed in successfully"
         index_page.sign_out_user()
         time.sleep(1)
         print(f"User {email_password[0]} is signed in successfully and signed out")
@@ -31,7 +31,7 @@ class TestSignIn:
         index_page = IndexPage(driver)
         index_page.navigate_to(SITE_URL)
         index_page.wait_and_click_sign_in_link()
-        index_page.signin_user(email_password[0], email_password[1])
+        index_page.sign_in_user(email_password[0], email_password[1])
         time.sleep(1)
         index_page.sign_out_user()
         # Check if the "Sign in" link is visible after signing out
