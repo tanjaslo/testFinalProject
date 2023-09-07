@@ -6,4 +6,5 @@ EXPECTED_FIELDS = {
 }
 MAX_WAIT_INTERVAL = 10
 SITE_URL = "https://six-cities-7.vercel.app/"
-CITIES = ["Paris", "Cologne", "Brussels", "Amsterdam", "Hamburg", "Dusseldorf"]
+# CITIES = ["Paris", "Cologne", "Brussels", "Amsterdam", "Hamburg", "Dusseldorf"]
+CHOSEN_CITY_NAME = "Dusseldorf"
