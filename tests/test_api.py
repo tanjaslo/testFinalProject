@@ -1,7 +1,4 @@
 # Test Scenario: API Testing for https://six-cities-7.vercel.app/ website
-import time
-
-import requests
 
 from api.api_common import validate_response, parse_as_json
 from resources.constants import BASE_URL, EXPECTED_FIELDS
