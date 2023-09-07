@@ -1,5 +1,6 @@
+# Test Scenario: Sign In and Sign Out for https://six-cities-7.vercel.app/ website
+
 from test_utils import *
-from selenium import webdriver
 import time
 from selenium.webdriver.common.by import By
 from pages.index_page import IndexPage
