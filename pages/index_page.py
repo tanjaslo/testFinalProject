@@ -58,3 +58,11 @@ class IndexPage(BasePage):
 
         def click_city_link(self, city_locator):
             self.explicitly_wait_and_find_element(MAX_WAIT_INTERVAL, city_locator).click()
+
+        def is_city_link_active(self, active_link_locator):
+            try:
+                active_city_link = self.driver.find_element(*active_link_locator)
+                print(f"Active city link is found: {active_city_link.text}")
+                return True
+            except NoSuchElementException:
+                return False
