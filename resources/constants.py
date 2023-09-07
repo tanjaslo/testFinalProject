@@ -4,5 +4,6 @@ EXPECTED_FIELDS = {
     "is_premium", "rating", "type", "bedrooms", "max_adults",
     "price", "goods", "host", "description", "location", "id"
 }
-MAX_WAIT_INTERVAL = 60
+MAX_WAIT_INTERVAL = 10
 SITE_URL = "https://six-cities-7.vercel.app/"
+CITIES = ["Paris", "Cologne", "Brussels", "Amsterdam", "Hamburg", "Dusseldorf"]
