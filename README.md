@@ -66,6 +66,16 @@ To use testFinalProject, follow these steps:
 
 Make sure to run the tests from the project directory.
 
+## Generating Test Report
+
+After running your tests, you can generate a detailed test report using `pytest-html`. Follow these steps to create the report:
+
+1. Run your tests with the `--html` option to specify the output HTML report file. For example, to generate a report named `test_report.html`, use the following command:
+
+   ```shell
+   pytest --html=test_report.html
+   ```
+
 ## Testing
 
 ### Test Scenarios
