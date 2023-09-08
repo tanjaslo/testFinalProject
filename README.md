@@ -7,6 +7,7 @@ testFinalProject is a Python automation project that tests a https://six-cities-
 - [Project Overview](#project-overview)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Generating Test Report](#generating-test-report)
 - [Testing](#testing)
 - [License](#license)
 
